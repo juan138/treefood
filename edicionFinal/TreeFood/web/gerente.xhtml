@@ -1,0 +1,458 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/WEB-INF/include/templateGerente.xhtml">
+        <ui:define name="head">
+
+        </ui:define>
+
+        <ui:define name="body">
+            <header id="header">
+                <!-- para barra menu -->            
+                <nav class=" navbar-inverse navbar-fixed-top">
+                    <!-- div para informacion superior-->
+                    <div class="container-fluid" style="width: 100%; display: inline-block; text-align: center;">
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-6" style=" text-align: left">
+                                <a class="hijo2" style="text-align: left"><span class="glyphicon glyphicon-earphone"></span> +(503) 2222-2222</a>
+                                <a class="hijo2"><span class="glyphicon glyphicon-envelope"></span>  tf@correo.com</a> 
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <form jsf:id="cerrarSesion">
+                                    <a jsf:action="#{usuario.cerrarSesion()}" class="hijo2" href="#"><span class="glyphicon glyphicon-off"></span>  Cerrar Sesion</a> 
+                                </form>
+                            </div>                                           
+                        </div>
+
+                        <div class="col-md-12" style="margin-top: 1%; box-shadow: 0px -1px #fcd4d4">
+                            <img jsf:library="imagen" jsf:name="logocompleto.png" width="200" style="margin-top: 1%"/>
+                        </div>
+                    </div>
+
+                    <!-- navegador barra superior -->
+                    <div class="collapse navbar-collapse padre container-fluid" style="background: #d02c30; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55) ">
+                        <div class="row">
+                            <div>
+                                <a class="hijo" href="gerente.xhtml" style=" font-size: 20px; font-family: initial">Inicio</a>                  
+
+                                <a class="hijo" href="perfilgerente.xhtml" >Quienes Somos</a>
+
+                            </div>
+                        </div>
+                    </div><!-- fin navegador barra superior --> 
+                </nav>
+            </header>
+            <!--Inicia Contenido-->
+            <div class="container-fluid contenedor" >
+                <div class="row">
+                    <div class="contenedorinterno col-lg-12 col-sx-12">
+                        <div class="row">
+                            <div class="qsm" id="imageninicio">
+                                <!-- Inicio Contenido de imagen -->
+                                <div class="row" >
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-6" id="info" style="text-align: center; padding: 10px"><!-- primera div -->
+                                        <div>
+                                            <h1 style="font-family: inherit; font-size: 60px; text-shadow: 3px 0 0 #000;">GESTIONA TU RESTAURANTE</h1>
+                                            <br/>
+                                            <h3 style="font-family: initialfantasy; font-size: 20px; color: white; text-shadow: 1px 0 0 #000; " >FACILIDAD A UN CLICK</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3"></div>
+                                </div>
+                                <!-- Fin Contenido de imagen -->
+                            </div>
+                        </div>
+                        <!-- Inicio Contenido de opciones inicio -->
+                        <div class="col-md-12" style="margin-top: 3%;  display: block; align-items: center">
+                            <div class="row">
+                                <div class="col-xs-4 col-md-2">
+                                    <a></a>
+                                </div>
+
+                                <div class="col-xs-4 col-md-2" >
+                                    <a href="#" class="thumbnail" id="iconospara" data-toggle="modal" data-target="#Reportes">
+                                        <img jsf:library="imagen" jsf:name="icono-reporte.png" width="150" alt="..."/>
+                                        <br/>
+                                        <span>REPORTES</span>
+                                    </a>
+
+                                    <!-- Inicio Modal de reportes -->
+                                    <div class="modal fade" id="Reportes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title" id="myModalLabel">Gestion de Reservas</h4>
+                                                </div>
+                                                <div style="height: 500px;" class="modal-body">
+                                                    <div class="container-fluid">
+                                                        <div align="right">
+
+
+                                                        </div>
+
+                                                        <!--codigo de barra de busqueda 
+                                                                                        <div class ="row">
+                                                                                            <div class="col-sm-6">
+                                                                                                <div class="form-group input-group">
+                                                                                                    <input type="text" class="form-control" id="txtTextoBuscar" placeholder="Codigo o Nombre del Empleado" />
+                                                                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                        -->
+
+                                                        <div class ="row">
+                                                            <div class="col-sm-12">
+                                                                <form jsf:id="tablaSuc">
+                                                                    <label >Sucursal</label> 
+
+                                                                    <h:selectOneMenu style="width: 200px;" id="suc" value="#{sucursalRest.idrest}" class="form-control" > 
+                                                                        <f:selectItem itemValue = "" itemLabel = "seleccione..." /> 
+                                                                        <f:selectItems value="#{sucursalRest.sucpanda()}" var="ver" itemValue = "#{ver.idSucursal.idSucursal}" itemLabel = "#{ver.idSucursal.sucursal}" /> 
+                                                                        <p:ajax listener="#{sucursalRest.var()}" update="tabla"/>
+                                                                    </h:selectOneMenu> 
+                                                                    <a jsf:action="#{reportes.reportePanda()}" href="#" style="position: absolute; right: 15px; top: 28px; text-transform: uppercase;" class="btn btn-sm btn-primary">descargar reporte <i class="glyphicon glyphicon glyphicon-save"></i></a>
+                                                                    <p:dataTable class="table" id="tabla" var="re" value="#{reserva.reservasSucursal()}" reflow="true" rows="4" paginator="true" >
+                                                                        <p:column headerText="Sucursal " >
+                                                                            <h:outputText value="#{re.sucursal.sucursal}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Nombres ">
+                                                                            <h:outputText value="#{re.idCliente.idPersona.nombres}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Apellidos ">
+                                                                            <h:outputText value="#{re.idCliente.idPersona.apellidos}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Fecha Reserva">
+                                                                            <h:outputText value="#{re.fechaReserva}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Contacto ">
+                                                                            <h:outputText value="#{re.numeroContacto}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Email ">
+                                                                            <h:outputText value="#{re.email}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="Area ">
+                                                                            <h:outputText value="#{re.areaRestaurante}" />
+                                                                        </p:column>
+                                                                    </p:dataTable>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fin Modal de reportes -->
+
+                                </div>
+
+                                <div class="col-xs-4 col-md-2">
+                                    <a class="thumbnail" id="iconospara" data-toggle="modal" data-target="#miModalEmpleado"> <!-- Boton para modal-->
+                                        <img jsf:library="imagen" jsf:name="icono-empleados.png" width="150" alt="..."/>
+                                        <br/>
+                                        <span>EMPLEADOS</span>
+                                    </a>
+                                    <!-- Inicio Modal de empledos -->
+                                    <div class="modal fade" id="miModalEmpleado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title" id="myModalLabel">Gestion de Empleados</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container-fluid">
+
+                                                        <br/>
+                                                        <!--codigo de barra de busqueda 
+                                                                                        <div class ="row">
+                                                                                            <div class="col-sm-6">
+                                                                                                <div class="form-group input-group">
+                                                                                                    <input type="text" class="form-control" id="txtTextoBuscar" placeholder="Codigo o Nombre del Empleado" />
+                                                                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                        -->
+
+                                                        <div class ="row">
+                                                            <div class="col-sm-12">
+                                                                <form jsf:id="updateEmp">
+                                                                    <h:selectOneMenu style="width: 200px;" id="suc" value="#{sucursalRest.idrest}" class="form-control" > 
+                                                                        <f:selectItem itemValue = "" itemLabel = "seleccione..." /> 
+                                                                        <f:selectItems value="#{sucursalRest.sucpanda()}" var="ver" itemValue = "#{ver.idSucursal.idSucursal}" itemLabel = "#{ver.idSucursal.sucursal}" /> 
+                                                                        <p:ajax listener="#{sucursalRest.var()}" update="tablaEmp"/>
+                                                                    </h:selectOneMenu> 
+                                                                    <p:dataTable id="tablaEmp" var="emp" value="#{empleado.listarEmpleados()}" rows="5" paginator="true">
+                                                                        <p:column headerText="nombre">
+                                                                            <h:outputText value="#{emp.idEmpleado.idPersona.nombres}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="apellido">
+                                                                            <h:outputText value="#{emp.idEmpleado.idPersona.apellidos}" />
+                                                                        </p:column>
+
+                                                                        <p:column headerText="edad">
+                                                                            <h:outputText value="#{emp.idEmpleado.idPersona.edad}" />
+                                                                        </p:column>
+                                                                        
+                                                                        <p:column headerText="H.Entrada">
+                                                                            <p:calendar class="cal" readonly="true" showOn="button" pattern="yyyy-MMM-dd" value="#{emp.horaEntrada}" />
+                                                                        </p:column>
+                                                                        
+                                                                        <p:column headerText="H.Salida">
+                                                                            <p:calendar class="cal" readonly="true" showOn="button" pattern="yyyy-MMM-dd"  value="#{emp.horaSalida}" />
+                                                                        </p:column>
+                                                                        
+                                                                        <p:column headerText="supervisor">
+                                                                            <h:outputText value="#{emp.idEmpleado.idGerente.idPersona.nombres}" />
+                                                                        </p:column>
+                                                                        <p:column>
+                                                                            <a jsf:action="#{empleado.llenarEditEmpleado(emp.idEmpleado.idEmpleado)}"  href="#" class="btn btn-sm btn-primary">Editar<i class="glyphicon glyphicon-pencil"></i></a>
+                                                                            <a jsf:action="#{empleado.eliminarEmpleado(emp.idEmpleado.idPersona.idPersona)}" href="#" class="btn btn-sm btn-danger">Eliminar<i class="glyphicon glyphicon-trash"></i></a>
+                                                                        </p:column>
+                                                                    </p:dataTable>
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fin Modal de empledos -->
+                                </div>
+
+                                <div class="col-xs-4 col-md-2">
+                                    <a href="#" class="thumbnail" id="iconospara" data-toggle="modal" data-target="#NuevoEmpleado">
+                                        <img jsf:library="imagen" jsf:name="icono-nuevo-empleado.png" width="150" alt="..."/>
+                                        <br/>
+                                        <span>NUEVO EMPLEADO</span>
+                                    </a>
+                                    <!-- inicio Modal de nuevo empleado -->
+                                    <div class="modal fade" id="NuevoEmpleado" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog1" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title" id="myModalLabel">Añadir Empleado</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container-fluid">
+
+                                                        <br/>
+                                                        <div class ="row">
+                                                            <div class="col-sm-12">
+                                                                <form action="#" jsf:id="formulario">
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-6">
+                                                                            <label for="nombre">
+                                                                                Nombres
+                                                                            </label>
+                                                                            <input jsf:value="#{empleado.iemp.nombre}" class="form-control" id="nombre"  placeholder="Nombres" required="true" type="text">
+                                                                            </input>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="apellido">
+                                                                                Apellidos
+                                                                            </label>
+                                                                            <input jsf:value="#{empleado.iemp.apellido}" class="form-control" id="apellido"  placeholder=" Escribe tu apellido" required="true" type="text">
+                                                                            </input>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-4">
+                                                                            <label for="edad">
+                                                                                Edad
+                                                                            </label>
+                                                                            <input jsf:value="#{empleado.iemp.eda}" class="form-control" id="edad"  placeholder="Edad " required="true" type="text">
+                                                                            </input>
+                                                                        </div>
+                                                                        <div class="col-md-2"></div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="suc">
+                                                                                sucursal
+                                                                            </label>
+                                                                            <h:selectOneMenu  id="suc" value="#{sucursalRest.idrest}" class="form-control" > 
+                                                                                <f:selectItem itemValue = "" itemLabel = "seleccione..." /> 
+                                                                                <f:selectItems value="#{sucursalRest.sucpanda()}" var="ver" itemValue = "#{ver.idSucursal.idSucursal}" itemLabel = "#{ver.idSucursal.sucursal}" /> 
+                                                                                <p:ajax listener="#{sucursalRest.var()}" update="ger" />
+                                                                            </h:selectOneMenu>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="row"></div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="user">
+                                                                                usuario
+                                                                            </label>
+                                                                            <input jsf:value="#{empleado.iemp.usua}" class="form-control" id="user" placeholder="Tu usurio" required="true" type="text">
+                                                                            </input>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="pass">
+                                                                                contraseña
+                                                                            </label>
+                                                                            <input jsf:value="#{empleado.iemp.pass}" class="form-control" id="pass" placeholder=" Escribe tu contraseña" required="true" type="text">
+                                                                            </input>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-6">
+                                                                            <label for="super">
+                                                                                supervisor
+                                                                            </label>
+                                                                            <h:selectOneMenu id="ger" value="#{empleado.iemp.idgerente}" class="form-control" > 
+                                                                                <f:selectItem itemValue = "" itemLabel = "seleccione..." /> 
+                                                                                <f:selectItems value="#{empleado.listarEmpleados()}" var="ver" itemValue = "#{ver.idEmpleado.idEmpleado}" itemLabel = "#{ver.idEmpleado.idPersona.nombres}" /> 
+                                                                                <p:ajax listener="#{sucursalRest.var()}" />
+                                                                            </h:selectOneMenu> 
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="hentrada">
+                                                                                Hora Entrada
+                                                                            </label>
+                                                                            <p:inputMask class="form-control" id="hentrada" value="#{empleado.horaEnt}" 
+                                                                                         placeholder="hora entrada"  required="true" mask="99:99" />
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-md-6">
+                                                                            <label for="hsalida">
+                                                                                Hora Salida
+                                                                            </label>
+                                                                            <p:inputMask class="form-control" id="hsalida" value="#{empleado.horaSal}" 
+                                                                                         placeholder="hora de salida"  required="true" mask="99:99" />
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label for="cargo">
+                                                                                Cargo
+                                                                            </label>
+                                                                            <h:selectOneMenu  value="#{empleado.tipo}" class="form-control" > 
+                                                                                <f:selectItem  itemLabel = "seleccione..." /> 
+                                                                                <f:selectItem itemValue="2" itemLabel = "empleado" /> 
+                                                                                <f:selectItem  itemValue = "3" itemLabel = "gerente" /> 
+                                                                            </h:selectOneMenu>  
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-lg-12">
+                                                                        <br />
+                                                                        <input jsf:action="#{empleado.nuevoEmpleado()}" class="btn btn-primary" type="submit" value="Guardar datos"/>
+                                                                    </div>
+                                                                </form>    
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fin Modal de nuevo empledo -->
+                                </div>
+
+                                <div class="col-xs-4 col-md-2">
+                                    <a href="#" class="thumbnail" id="iconospara" data-toggle="modal" data-target="#miModalSucursal">
+                                        <img jsf:library="imagen" jsf:name="icono-sucursales.png" width="150" alt="..."/>
+                                        <br/>
+                                        <span>SUCURSALES</span>
+                                    </a>
+
+                                    <div class="modal fade" id="miModalSucursal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title" id="myModalLabel">Gestion de Sucursales</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="container-fluid">
+
+                                                        <br/>
+                                                        <!--codigo de barra de busqueda 
+                                                                                        <div class ="row">
+                                                                                            <div class="col-sm-6">
+                                                                                                <div class="form-group input-group">
+                                                                                                    <input type="text" class="form-control" id="txtTextoBuscar" placeholder="Codigo o Nombre del Empleado" />
+                                                                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                        -->
+
+                                                        <div class ="row">
+                                                            <div class="col-sm-12">
+                                                                <table class="table table-bordered table-striped table-hover">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th colspan="7" class="text-center">Listado de Sucursales</th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>Código</th>
+                                                                            <th>Nombre Sucursal</th>
+                                                                            <th>Direccion</th>                                                                
+                                                                            <th class="text-right">Contacto</th>
+                                                                            <th class="text-center"><i class="glyphicon glyphicon-pencil"></i></th>
+                                                                            <th class="text-center"><i class="glyphicon glyphicon-trash"></i></th>
+                                                                        </tr>
+                                                                    </thead>
+
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td></td>
+                                                                            <td></td>
+                                                                            <td></td>                                                                       
+                                                                            <td class="text-right"></td>           
+                                                                            <td class="text-center"><a href="#" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-pencil"></i></a></td>
+                                                                            <td class="text-center"><a href="#" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a></td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- Fin Contenido de opciones inicio -->
+                        </div> 
+                    </div>
+                </div>
+            </div><!-- Fin Contenido -->
+
+
+        </ui:define>
+    </ui:composition>
+</html>

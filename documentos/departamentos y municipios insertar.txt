@@ -1,0 +1,72 @@
+-- INSERCIONES A LA DB RESTAURANTES
+
+select * from MUNICIPIOS;
+select * from departamentos;
+
+-- INSERTAR DEPARTAMENTOS
+insert into DEPARTAMENTOS (departamento) values ('Ahuachapan');
+insert into DEPARTAMENTOS (departamento) values ('Santa Ana');
+insert into DEPARTAMENTOS (departamento) values ('Sonsonate');
+insert into DEPARTAMENTOS (departamento) values ('Chalatenango');
+insert into DEPARTAMENTOS (departamento) values ('Cuscatlan');
+insert into DEPARTAMENTOS (departamento) values ('San Salvador');
+insert into DEPARTAMENTOS (departamento) values ('La Libertad');
+insert into DEPARTAMENTOS (departamento) values ('San Vicente');
+insert into DEPARTAMENTOS (departamento) values ('Cabañas');
+insert into DEPARTAMENTOS (departamento) values ('La Paz');
+insert into DEPARTAMENTOS (departamento) values ('Usulutan');
+insert into DEPARTAMENTOS (departamento) values ('San Miguel');
+insert into DEPARTAMENTOS (departamento) values ('Morazan');
+insert into DEPARTAMENTOS (departamento) values ('La Union');
+
+-- INSERTAR MUNICIPIOS
+-- municipios para Ahuachapan
+insert into MUNICIPIOS (municipio,departamento) values ('Ahuachapán',1);
+insert into MUNICIPIOS (municipio,departamento) values ('Apaneca',1);
+insert into MUNICIPIOS (municipio,departamento) values ('Atiquizaya',1);
+insert into MUNICIPIOS (municipio,departamento) values ('Concepción de Ataco',1);
+insert into MUNICIPIOS (municipio,departamento) values ('El Refugio',1);
+insert into MUNICIPIOS (municipio,departamento) values ('Guaymango',1);
+insert into MUNICIPIOS (municipio,departamento) values ('Jujutla',1);
+insert into MUNICIPIOS (municipio,departamento) values ('San Francisco Menéndez',1);
+insert into MUNICIPIOS (municipio,departamento) values ('San Lorenzo',1);
+insert into MUNICIPIOS (municipio,departamento) values ('San Pedro Puxtla',1);
+insert into MUNICIPIOS (municipio,departamento) values ('Tacuba',1);
+insert into MUNICIPIOS (municipio,departamento) values ('Turín',1);
+
+
+-- INSERTAR MUNICIPIOS
+-- municipios para Santa Ana
+insert into MUNICIPIOS (municipio,departamento) values ('Candelaria de la Frontera',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Chalchuapa',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Coatepeque',2);
+insert into MUNICIPIOS (municipio,departamento) values ('El Congo',2);
+insert into MUNICIPIOS (municipio,departamento) values ('El Porvenir',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Masahuat',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Metapán',2);
+insert into MUNICIPIOS (municipio,departamento) values ('San Antonio Pajonal',2);
+insert into MUNICIPIOS (municipio,departamento) values ('San Sebastián Salitrillo',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Santa Ana',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Santa Rosa Guachipilín',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Santiago de la Frontera',2);
+insert into MUNICIPIOS (municipio,departamento) values ('Texistepeque',2);
+
+
+-- INSERTAR MUNICIPIOS
+-- municipios para Sonsonate
+insert into MUNICIPIOS (municipio,departamento) values ('Acajutla',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Armenia',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Caluco',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Cuisnahuat',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Izalco',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Juayúa',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Nahuizalco',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Nahulingo',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Salcoatitán',3);
+insert into MUNICIPIOS (municipio,departamento) values ('San Antonio del Monte',3);
+insert into MUNICIPIOS (municipio,departamento) values ('San Julián',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Santa Catarina Masahuat',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Santa Isabel Ishuatán',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Santo Domingo Guzmán',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Sonsonate',3);
+insert into MUNICIPIOS (municipio,departamento) values ('Sonzacate',3);

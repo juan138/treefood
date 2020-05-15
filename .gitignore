@@ -1,0 +1,7 @@
+build/
+dist/
+test/
+/TreeFood/nbproject/private/
+documentos/casos_de_uso.zargo~
+~$cha de software.docx
+Tree Food.zargo~

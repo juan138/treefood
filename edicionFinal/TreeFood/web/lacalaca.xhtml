@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <h:head>
+        <title>La Calaca</title>
+        <h:outputScript library="js" name="calaca_home.js"/>
+        <h:outputStylesheet library="css" name="calaca_home.css"/>
+        <link href="resources/calaca_home.css" rel="stylesheet" type="text/css"/> 
+         <f:event id="ev" type="preRenderView" listener="#{usuario.validarSession()}"/>
+    </h:head>
+    <h:body>
+
+            <p:row>
+                <p:column>
+                    <p:growl id="messages"/>
+
+                    <p:menubar  class="main_menu" style="height: 90px;">
+                        <f:facet name="options">
+                            <img style="position: absolute; left: 10px; width:250px;" src="https://www.paga-todo.com/en/Static/img/empresas/compra/logo_lacalaca.png" />
+                        </f:facet>
+                        <f:facet  name="options">
+                            <p:link style="position: absolute;color: white; left: 47%; font-size: 40px; text-decoration: none; margin-top: 1%; font-family: serif; font-weight: bold; " outcome="perfil" value="INICIO"/>
+                        </f:facet>
+                        <f:facet name="options"> 
+                            <h:form>
+                                <img class="cambio" src="http://laca-laca.com/Content/img/reserva_aqui.png" />
+                                <p:commandButton  value="Salir" action="#{usuario.cerrarSesion()}" class="boton" style="background-color: #FF047D; background-image: linear-gradient(#FF047D,#FF047D); border: none;color: white; font-size: 25px; margin-top: 15%;"/>
+                            </h:form>
+                        </f:facet>
+                    </p:menubar> 
+                </p:column>
+            </p:row>
+
+            <!-- Contenido de el cuerpo de la pagina -->
+            <p:row class="cuerpo_uno" style="background: blue;">
+                <p:column>
+                    <h:form>
+                        <h2 class="calaca">LA CALACA</h2>
+                    <p:commandButton onclick="PF('reserva').show();"  ondblclick="mainmethod();" id="craneo" value="" class="cambiobuton" />
+                
+                    </h:form>
+                    </p:column>
+            </p:row>
+            <img class="fras" jsf:library="images" jsf:name="encabezado.png"/>
+            <img class="chef" src="http://laca-laca.com/Content/img/calaveraCome.png" />
+            <!-- MODAL PARA FORMULARIO DE RESERVA-->
+            <p:row>
+                <p:column>
+                    <p:dialog  header="LLENA LOS CAMPOS PARA HACER TU RESERVA" widgetVar="reserva" modal="true" height="350">
+                        <h:form>
+                            <p:panelGrid columns="2" style="font-size: 16px; font-weight: bold; margin-top: 25px;" >
+                                <p:outputLabel value="N° contacto"/>
+                                <p:inputText value="#{reserva.re.numeroContacto}"/>
+                                <p:outputLabel value="Correo"/>
+                                <p:inputText value="#{reserva.re.email}"/>
+                                <p:outputLabel  value="N° Invitados" />
+                                <p:inputNumber value="#{reserva.re.cantidadComensales}"/>
+                                <p:outputLabel value="Sucursal"/>
+                                <p:selectOneMenu style="width: 81%;" value="#{sucursalRest.idrest}">
+                                    <f:selectItem itemValue = "" itemLabel = "seleccione..." /> 
+                                    <f:selectItems  value="#{sucursalRest.sucLaca()}" var="ver" itemValue = "#{ver.idSucursal.idSucursal}" itemLabel = "#{ver.idSucursal.sucursal}" /> 
+                                    <p:ajax  update="area"/>
+                                </p:selectOneMenu>
+                                <p:outputLabel value="Area"/>
+                                <p:selectOneMenu id="area" style="width: 81%;" value="#{reserva.areas}">
+                                    <f:selectItem itemValue = "" itemLabel = "seleccione..." />
+                                    <f:selectItems value="#{sucursalRest.areasuc()}" var="ver" itemValue="#{ver.area}" itemLabel ="#{ver.area}" /> 
+                                </p:selectOneMenu>
+                                <p:outputLabel value="Fecha"/>
+                                <p:inputMask id="date" value="#{reserva.fecha}" mask="9999-99-99"/>
+                            </p:panelGrid>
+                            <p:commandButton class="btn-modal"  ajax="false" action="#{reserva.reservar()}"  icon="pi pi-check" validateClient="true"  value="HACER RESERVA"/>
+                        </h:form>
+                    </p:dialog> 
+                </p:column>
+            </p:row>      
+    </h:body>
+</html>
+

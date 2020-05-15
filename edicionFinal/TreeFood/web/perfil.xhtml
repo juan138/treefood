@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <ui:composition template="/WEB-INF/include/template.xhtml">
+        <ui:define name="head">
+            <f:event id="ev" type="preRenderView" listener="#{cliente.datosPersonales()}"/>
+            <!-- template -->
+
+
+        </ui:define>
+
+        <ui:define name="body" >
+            <form jsf:id="nav">
+                <!-- para barra menu -->            
+                <nav class="navbar navbar-inverse  navbar-fixed-top">
+                    <div class="container">
+                        <!--/logo -->
+                        <div class="navbar-header">                       
+                            <div align="center">
+                                <!-- <img src="resources/imagen/logoLetra.png" alt="" height="50" class="abrir" style="margin-left: 20%"/>-->                         
+                                <img jsf:library="imagen" jsf:name="logocompleto.png"  alt="TreeFood" width="140"  style="margin-top: 10%; margin-left: 50%"/>                        
+
+
+                            </div>  
+                        </div>
+                        <!-- navegador barra superior -->
+                        <div id="navbar" class="collapse navbar-collapse" style=" background-color: #ffffff;"> <!-- se cambio el color -->
+                            <ul class="nav navbar-nav">             
+                                <li><a href="perfil.xhtml" style="margin-left: 100%; margin-top: 15%; color: #b12626; font-family: fantasy; font-size: 20px ">Inicio</a></li>
+
+                            </ul>
+                            <ul class="nav navbar-nav" style="margin-left: 70%">             
+                                <li><button jsf:action="#{usuario.cerrarSesion()}" style="border: none; margin-top: 8%;color: #b12626; background-color: transparent; font-family: fantasy; font-size: 20px; ">Cerrar Sesion</button></li> <!-- se cambio el texto de ambos inicio y cerrar sesion -->
+
+                            </ul>
+
+
+                        </div>
+
+                    </div>
+                </nav>
+            </form>
+            <!-- barra lateral -->
+
+            <input id="abrir-cerrar" name="abrir-cerrar" type="checkbox" value="" />
+            <label for="abrir-cerrar">
+                <!-- se modifico la imagen y tamaño -->
+                <img  jsf:library="imagen" jsf:name="menu2.png" alt="" width="80" height="83" style="background: #ffffff; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); margin-left: -15px;"/>
+                <span class="abrir" style="margin-top: 100%;"></span>
+            </label>
+
+            <label for="abrir-cerrar" >
+
+
+                <span class="cerrar">Cerrar</span>
+            </label>
+
+            <div id="sidebar" class="sidebar" style="box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);"> <!-- se cambio esta linea -->
+
+                <input id="abrir-cerrar" name="abrir-cerrar" type="checkbox" value=""/>
+
+
+                <div style="margin-left: 15%"> 
+                    <br/><br/>
+                    <h3 style="margin-left: 10%; color: #ffffff">Bienvenid@ <h:outputLabel value="#{cliente.cli.idPersona.nombres}" /></h3>
+                    <br/><br/>
+                    <img jsf:library="imagen" jsf:name="logoconfondo.png" alt="" height="100"/>    
+
+                </div>
+                <br/><br/>
+
+                <div style="margin-left: 10%; width: 30%">
+
+                    <ul class="nav nav-pills nav-stacked" >
+                        <li role="presentation" class="active"><a>Menu</a></li>
+
+                        <li role="presentation"> <!-- modal de perfil -->
+
+                            <a href="#openModal">Perfil</a>
+
+                            <div id="openModal" class="modalDialog">
+                                <div>
+                                    <a href="#close" title="Close" class="close">X</a>
+
+                                    <div class="container" >
+
+                                        <h3 style="text-align: center">Perfil</h3>
+                                        <br/><br/>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Email</label>
+                                                <input type="email" jsf:value="#{cliente.cli.email}" readonly="true" class="form-control" id="inputEmail4" placeholder="Email"/>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="inputus">Usuario</label>
+                                                <input jsf:value="#{cliente.user}" type="text" readonly="true" class="form-control" id="inputus" placeholder="User"/>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row" style="margin-top: 12%">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Nombre</label>
+                                                <input jsf:value="#{cliente.cli.idPersona.nombres}" readonly="true" type="text" class="form-control" id="inputEmail4" placeholder="Name"/>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Apellido</label>
+                                                <input jsf:value="#{cliente.cli.idPersona.apellidos}" readonly="true" type="text" class="form-control" id="inputPassword4" placeholder="Last Name"/>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row" style="margin-top: 12%">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputEmail4">Edad</label>
+                                                <input jsf:value="#{cliente.cli.idPersona.edad}" readonly="true" type="text" class="form-control" id="inputEmail4" placeholder="age"/>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label for="inputPassword4">Telefono</label>
+                                                <input jsf:value="#{cliente.cli.telefono}" readonly="true" type="text" class="form-control" id="inputPassword4" placeholder="Phone"/>
+                                            </div>
+
+                                        </div>
+
+                                        <br/><br/><br/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </li>
+                        <li role="presentation"> <!-- modal de reservas -->
+                            <a href="#openModal3" >Reservas</a>
+
+                            <div id="openModal3" class="modalDialog">
+                                <div style="width: 1100px !important;  ">
+                                    <a href="#close" title="Close" class="close">X</a>
+
+                                    <div class="container" >
+
+                                        <h3 style="text-align: center">Historial de Reservas</h3>
+                                        <br/><br/>
+                                        <h:dataTable style="width: 1000px !important;" class="table" value="#{reserva.listarReservas()}" var="r">
+                                            <h:column>
+                                                <f:facet name="header">codigo </f:facet>
+                                                <input style="width: 40px !important;" class="form-control" value="#{r.idReserva}" type="text" readonly="true" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">cliente </f:facet>
+                                                <input class="form-control" value="#{r.idCliente.idPersona.nombres}" type="text" readonly="true" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">fecha</f:facet>
+                                                <input class="form-control" value="#{r.fechaReserva}" type="text" readonly="true" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">sucursal </f:facet>
+                                                <input class="form-control" value="#{r.sucursal.sucursal}" type="text" readonly="true" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">contacto </f:facet>
+                                                <input class="form-control" value="#{r.numeroContacto}" type="text" readonly="true" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">correo </f:facet>
+                                                <input class="form-control" value="#{r.email}" type="text" readonly="true" />
+                                                    
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">estado </f:facet>
+                                                <input class="form-control" value="#{r.estado}" type="text" readonly="true" />
+                                            </h:column>
+                                            <h:column>
+                                                <f:facet name="header">area</f:facet>
+                                                <input class="form-control" value="#{r.areaRestaurante}" type="text" readonly="true" />
+                                            </h:column>
+                                        </h:dataTable>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </li> 
+
+                        <li role="presentation"> <!-- modal de actualizar -->
+
+                            <a href="#openModal2" >Actualizar Perfil</a>
+
+                            <div id="openModal2" class="modalDialog">
+                                <div>
+                                    <a href="#close" title="Close" class="close">X</a>
+
+                                    <div class="container" >
+                                        <form jsf:id="updatePerfil">
+
+                                            <h3 style="text-align: center">Modificacion de Datos</h3>
+                                            <br/><br/>
+
+                                            <div class="form-row" style="margin-top: 12%">
+                                                <div class="form-group col-md-4">
+                                                    <label for="updateNombre">Nombre</label>
+                                                    <input jsf:value="#{cliente.cli.idPersona.nombres}" required="true" type="text" class="form-control" id="updateNombre" placeholder="Name"/>
+                                                </div>
+
+                                                <div class="form-group col-md-4">
+                                                    <label for="updateApellido">Apellido</label>
+                                                    <input jsf:value="#{cliente.cli.idPersona.apellidos}" required="true" type="text" class="form-control" id="updateApellido" placeholder="Last Name"/>
+                                                </div>
+
+                                                <div class="form-group col-md-4">
+                                                    <label for="updateEdad">Edad</label>
+                                                    <input jsf:value="#{cliente.cli.idPersona.edad}" required="true" type="text" class="form-control" id="updateEdad" placeholder="Age"/>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="updateEmail">Email</label>
+                                                    <input jsf:value="#{cliente.cli.email}" required="true" type="email" class="form-control" id="updateEmail" placeholder="Email"/>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="updateTel">Telefono</label>
+                                                    <input jsf:value="#{cliente.cli.telefono}" required="true" type="text" class="form-control" id="updateTel" placeholder="Telefono"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row" style="margin-top: 12%">
+                                                <div class="form-group col-md-4">
+                                                    <label for="updateUser">Usuario</label>
+                                                    <input jsf:value="#{cliente.user}" required="true" type="text" class="form-control" id="updateUser" placeholder="User"/>
+                                                </div>
+
+                                                <div class="form-group col-md-4">
+                                                    <label for="updatePass">PassWord</label>
+                                                    <input jsf:value="#{cliente.us.pass}" required="true" type="password" class="form-control" id="updatePass" placeholder="*****"/>
+                                                </div>
+
+                                            </div>
+
+                                            <button jsf:action="#{cliente.updateCliente()}" type="submit" class="btn btn-primary" style="margin-top: 5%; margin-bottom: 25px; margin-left: 42%">Confirmar</button>
+
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- para el contenido -->
+            <div class="container " id="contenido" style=" width:1200px; margin-top: 5%; margin-left: 150px;" >
+                <div  class="starter-template col-lg-12 col-sx-12 col-centre" id="fondo">
+                    <h1 style="font-family: fantasy; color: white; font-size: 72px; position: relative; text-shadow: 5px 0 0 #000;">Restaurantes</h1> <!-- Se cambio esta linea -->
+                    <br/><br/><br/>
+
+
+                    <a class="rounded float-left img-fluid img-rounded" href="lacalaca.xhtml" style="width: 350px; ">
+
+                        <span class="visually-hidden">
+                            <!-- se cambiaron las 3 lineas de imagenes-->      
+                            <img jsf:library="imagen" jsf:name="laca.jpg" class="img-circle img-thumbnail" alt="..." style="margin-right: 70px; width: 300px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55)"/>
+                        </span>
+
+                    </a>
+
+                    <a class="rounded mx-auto d-block img-fluid img-rounded" href="panda.xhtml" style=" width: 350px; ">
+
+                        <span class="visually-hidden">
+                            <img jsf:library="imagen" jsf:name="246x0w.jpg" class="img-circle img-thumbnail" alt="..." style="width: 300px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55)"></img>
+                        </span>
+
+                    </a>
+
+
+                    <img jsf:library="imagen" jsf:name="fgfdg.png" class=" img-circle img-thumbnail" alt="..." style="margin-left: 70px;  width: 300px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.55)"/>
+
+
+                </div>
+            </div><!-- /.container -->
+
+
+
+        </ui:define>
+
+
+    </ui:composition> 
+
+
+</html>
+

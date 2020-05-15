@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/WEB-INF/include/templatepanda.xhtml">
+        <ui:define name="head">
+            
+        </ui:define>
+
+        <ui:define name="body">
+            <!-- para barra menu -->            
+            <nav class="navbar navbar-inverse navbar-inverse2 navbar-fixed-top" >
+                <div class="container">
+                    <!--/logo -->
+                    <div class="navbar-header"  >                       
+                        <div align="center">
+                            <!-- <img src="resources/imagen/logoLetra.png" alt="" height="50" class="abrir" style="margin-left: 20%"/>-->                         
+                            <img jsf:library="imagen" jsf:name="pE.png"  alt="TreeFood" width="120" height="120"  style="margin-top: 5%; margin-left: 70%"/>                        
+                        </div>  
+                    </div> <!--fin logo -->
+                    <!-- navegador barra superior -->
+                    <div id="navbar" class="collapse navbar-collapse" style="background: #d02c30;box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55) ">
+                        <ul class="nav navbar-nav">             
+                            <li><a href="perfil.xhtml" style="margin-left: 700%; margin-top: 50%; font-size: 20px; font-family: fantasy">Inicio</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav" style="margin-left: 70%">   
+                            <form jsf:id="sesion">
+                                <li><button href="#" jsf:action="#{usuario.cerrarSesion()}" style="color: white; background-color: transparent; border: 0px; margin-top: 29%; font-size: 20px; font-family: fantasy">Cerrar Sesion</button></li>
+                            </form>
+                        </ul>
+                    </div><!-- fin navegador barra superior --> 
+                </div>
+            </nav>
+
+            <!--Inicia Contenido-->
+            <div class="container" id="contenido" >                
+                <div class="starter-template col-lg-12 col-sx-12 col-centre">                    
+                    <h1></h1>
+                    <br/><br/><br/>
+                    <!-- Texto -->
+                    <nav class="navbar navbar-default " style="width: 60%; margin-left: 25%; background: transparent; border: transparent;">
+                        <div class="container" style="font-family: fantasy;">                                                      
+                            <h1 class="title" style="color: #d02c30; text-transform: uppercase; font-size: 52px; text-shadow: 1px 0 0 #ffff;">
+                                <small style="  color: #d02c30; text-transform: uppercase; font-size: 42px" >Nuestra Comida</small>
+                                <br/><br/>
+                                "Gastronomia China Americana"                             
+                            </h1>
+                        </div>                                                
+                    </nav>
+                    <!--Fin Texto -->                    
+                    <a type="submit" href="#modalreserva" class="btn btn-group-xs" style=" margin-top: 3%; width: 240px; height: 60px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55); border: transparent; text-align: center; font-size: 30px; font-family: fantasy;">RESERVAR</a>                    
+
+                    <!-- Modal de la nueva Reserva-->
+                    <div id="modalreserva" class="modalDialog">
+                        <div style="width: 1000px;">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <form jsf:id="re">
+                               
+                            <div class="container" >
+                                
+                                    <h3 style="text-align: center">Nueva Reserva</h3>
+                                    <br/> 
+                                    <div class="form-row" style="margin-top: 0%">
+                                        <div class="form-group col-md-4">
+                                            <label for="contacto">Nº Contacto</label>
+                                            <input type="text" jsf:value="#{reserva.re.numeroContacto}" class="form-control" id="contacto" placeholder="Telefono"/>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="correo" >Correo</label>
+                                            <input type="email" jsf:value="#{reserva.re.email}" class="form-control" id="correo" placeholder="Email"/>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="invitados">Nº Invitados</label>
+                                            <input type="number" jsf:value="#{reserva.re.cantidadComensales}" class="form-control" id="invitados" placeholder="Nº Comensales"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row" style="margin-top: 0%">
+                                        <div class="form-group col-md-4">
+                                            <label >Sucursal</label> 
+                                            <h:selectOneMenu id="suc" value="#{sucursalRest.idrest}" class="form-control" > 
+                                                <f:selectItem itemValue = "" itemLabel = "seleccione..." /> 
+                                                <f:selectItems value="#{sucursalRest.sucpanda()}" var="ver" itemValue = "#{ver.idSucursal.idSucursal}" itemLabel = "#{ver.idSucursal.sucursal}" /> 
+                                                <p:ajax  update="area"/>
+                                            </h:selectOneMenu>  	
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                             
+                                            <h:selectOneMenu id="area"  value="#{reserva.areas}" class="form-control" > 
+                                                <f:selectItem itemLabel = "seleccione..." noSelectionOption="true" /> 
+                                                <f:selectItems value="#{sucursalRest.areasuc()}" var="ver" itemValue="#{ver.area}" itemLabel ="#{ver.area}" /> 
+                                            </h:selectOneMenu> 	
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="fecha">Fecha </label><label style="color: red; margin-left: 20px;"> aaaa-mm-dd</label>
+                                            <input type="text" jsf:value="#{reserva.fecha}" class="form-control" pattern="[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])"  id="fecha"  placeholder="aaaa-mm-dd"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-row" style="margin-top: 0%">
+                                        <div class="form-group col-md-4">
+                                            
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <button style="padding: 10px; border-radius: 15%;" jsf:action="#{reserva.reservar()}" class="btn-primary">Reservar</button>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                           
+                                        </div>
+                                    </div>
+                                 
+                            </div>
+                                
+                            </form>
+                        </div>
+                    </div> <!-- Termina Modal -->
+                </div>
+            </div><!-- contenedor -->
+
+            <!-- Imagenes inferiores-->
+            <div class="row" style="margin-top: 3%">
+                <div class="col-xs-6 col-md-3">
+                    <a href="http://revistaelconocedor.com/wp-content/uploads/2018/09/DSC08760-1024x682.jpg" class="thumbnail">
+                        <img jsf:library="imagen" jsf:name="img1.jpg" alt="..."/>
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <a href="https://www.protocolo.com.mx/wp-content/uploads/wok-smart03.jpg" class="thumbnail">
+                        <img jsf:library="imagen" jsf:name="img2.jpg" alt="..."/>
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <a href="https://pbs.twimg.com/media/DmXsTF6VsAAtQ-u.jpg" class="thumbnail">
+                        <img jsf:library="imagen" jsf:name="img3.jpg" alt="..."/>
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <a href="http://revistaelconocedor.com/wp-content/uploads/2018/09/DSC08760-1024x682.jpg" class="thumbnail" style="border: #d02c30">
+                        <img jsf:library="imagen" jsf:name="img4.jpg" alt="..."/>
+                    </a>
+                </div>
+
+            </div> <!-- Fin imagenes inferiores-->
+
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/WEB-INF/include/templateGerente.xhtml">
+        <ui:define name="head">
+            <f:event id="ev" type="preRenderView" listener="#{errorVista.error()}"/>
+        </ui:define>
+
+        <ui:define name="body">
+            <header id="header">
+                
+                <!-- para barra menu -->            
+                <nav class=" navbar-inverse navbar-fixed-top">
+                    <!-- div para informacion superior-->
+                    <div class="container-fluid" style="width: 100%; display: inline-block; text-align: center;">
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-6" style=" text-align: left">
+                                <a class="hijo2" style="text-align: left"><span class="glyphicon glyphicon-earphone"></span> +(503) 2222-2222</a>
+                                <a class="hijo2"><span class="glyphicon glyphicon-envelope"></span>  tf@correo.com</a> 
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <form jsf:id="cerrarSesion">
+                                    <a jsf:action="#{usuario.cerrarSesion()}" class="hijo2" href="#"><span class="glyphicon glyphicon-off"></span>  Cerrar Sesion</a> 
+                                </form>
+                            </div>                                           
+                        </div>
+
+                        <div class="col-md-12" style="margin-top: 1%; box-shadow: 0px -1px #fcd4d4">
+                            <img jsf:library="imagen" jsf:name="logocompleto.png" width="200" style="margin-top: 1%"/>
+                        </div>
+                    </div>
+
+                    <!-- navegador barra superior -->
+                    <div class="collapse navbar-collapse padre container-fluid" style="background: #d02c30; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55) ">
+                        <div class="row">
+                            <div>
+                                <a class="hijo" href="gerente.xhtml" style=" font-size: 20px; font-family: initial">Inicio</a>                  
+
+                                <a class="hijo" href="perfilgerente.xhtml" >Quienes Somos</a>
+
+                            </div>
+                        </div>
+                    </div><!-- fin navegador barra superior --> 
+                </nav>
+            </header>
+            <!--Inicia Contenido-->
+            <div class="container-fluid contenedor" >
+                <div>
+                    <span style="top: 55%; left: 35%; font-size: 50px; position: absolute;">ha ocurrido un error</span>
+                    <span style="top: 65%;left: 35%; font-size: 50px; position: absolute;">favor intentar en unos momentos</span>
+                    <div style=" width: 200px; top: 75%;left: 15%; font-size: 20px; position: absolute;">
+                       <h:outputLabel style="font-size: 25px;" value="#{errorVista.error}"/>
+                    </div>
+
+                </div>
+            </div><!-- Fin Contenido -->
+
+
+        </ui:define>
+    </ui:composition>
+</html>

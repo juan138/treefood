@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+    <ui:composition template="/WEB-INF/include/templateGerente_1M.xhtml">
+        <ui:define name="head">
+
+        </ui:define>
+
+        <ui:define name="body">
+          
+            <header id="header">
+                <!-- para barra menu -->            
+                <nav class=" navbar-inverse navbar-fixed-top">
+                    <!-- div para informacion superior-->
+                    <div class="container-fluid" style="width: 100%; display: inline-block; text-align: center;">
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-6" style=" text-align: left">
+                                <a class="hijo2" style="text-align: left"><span class="glyphicon glyphicon-earphone"></span> +(503) 2222-2222</a>
+                                <a class="hijo2"><span class="glyphicon glyphicon-envelope"></span>  correo@correo.com</a> 
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <a class="hijo2" href="#"><span class="glyphicon glyphicon-off"></span>  Cerrar Sesion</a> 
+                            </div>                                           
+                        </div>
+
+                        <div class="col-md-12" style="margin-top: 1%; box-shadow: 0px -1px #fcd4d4">
+                            <img jsf:library="imagen" jsf:name="logocompleto.png" width="200" style="margin-top: 1%"/>
+                        </div>
+                    </div>
+
+                    <!-- navegador barra superior -->
+                    <div class="collapse navbar-collapse padre container-fluid" style="background: #d02c30; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55) ">
+                        <div class="row">
+                            <div>
+                                <a class="hijo" href="gerente.xhtml" style=" font-size: 20px; font-family: initial">Inicio</a>                  
+
+                                <a class="hijo" href="perfilgerente.xhtml" >Quienes Somos</a>
+
+                            </div>
+                        </div>
+                    </div><!-- fin navegador barra superior --> 
+                </nav>
+            </header>
+            <!--Inicia Contenido-->
+
+            <div class="contenedorinterno  col-lg-12 col-sx-12">
+                <div class="row">
+                    
+                    <form style="margin-top: 13%">
+                            <div >
+                                <h1>Modificar Empleado</h1>
+                            </div>
+
+                            <br/>
+
+                            <hr class="sep"/>
+                            <div class="container-fluid" style="margin-left: 12%">
+                                <div class="group col-md-6">
+                                    <input type="text" required="required" value="gggg"/>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Nombres</label>
+                                </div>
+                                <div class="group col-md-6">
+                                    <input type="text" required="required" value="gggg"/>
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Apellidos</label>
+                                </div>
+                            </div>
+                            <div class="container-fluid" style="margin-left: 12%">
+                                <div class="group col-md-6">
+                                    <input type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                                    <label>Email</label>
+                                </div>
+                                <div class="group col-md-6">
+                                    <input type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                                    <label>Direccion</label>
+                                </div>
+                            </div>
+                            <div class="container-fluid" style="margin-left: 12%">
+                                <div class="group col-md-6">
+                                    <input type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                                    <label>Telefono</label>
+                                </div>
+                                <div class="group col-md-6">
+                                    <input type="text" required="required"/><span class="highlight"></span><span class="bar"></span>
+                                    <label>Sucursal</label>
+                                </div>
+                            </div>
+
+                            <div class="btn-box">
+                                <button class="btn btn-submit" type="submit">Guardar</button>
+                                <button class="btn btn-cancel" type="button">cancel</button>
+
+                            </div>
+                        </form>
+                    </div>  
+                </div>
+        
+
+
+            <!-- Fin Contenido -->
+        </ui:define>
+
+
+
+    </ui:composition>
+</html>
+

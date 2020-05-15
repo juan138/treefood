@@ -1,0 +1,119 @@
+.cuerpo_uno{
+    background: red;
+}
+body{
+background-color: black;
+    background-image:  url("http://laca-laca.com/content/img/texturaFormV4.png");
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.calavera:hover{
+    box-shadow: aqua 3px;
+    border: solid aquamarine 5px;
+}
+.main_menu{
+    border-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #FF047D !important;
+}
+.sub_menu{
+    color: red;
+    border: solid black 3px;
+}
+.calaca{
+    border: solid rosybrown 1px;
+    position: center;
+    box-shadow: blueviolet 3px;
+    color:paleturquoise;
+}
+div.craneo{
+    color: black;
+}
+
+/* carlos */ 
+
+@keyframes anim{ 
+    0% {background-color: #884D7D;} /*morado*/
+   25% {background-color: #D68228;} /*Naranja opaco*/
+   50% {background-color: #000;} /*Negro*/
+   75% {background-color: #E00199;} /*rozado*/
+  100% {background-color: #C61316;} /*rojo*/
+}
+
+.cambio{
+    position: absolute;
+    left: 10%;
+    top: 200px;
+    animation-name: anim;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animbuton{ 
+    0% {background-image:  url("https://pbs.twimg.com/media/CuGE9ZgVMAAfxL1.jpg")} 
+   25% {background-image:  url("https://laguiadeloscelulares.com/caels/Registros-Cortesia/artes-cortesia/la-calaca.jpg")} 
+   50% {background-image:  url("http://www.getmyfood.com.sv/img/products/d245bb90ad0ec556db079c715709a615.png")} 
+   75% {background-image:  url("https://media-cdn.tripadvisor.com/media/photo-s/0f/5d/58/81/chilachos.jpg")} 
+  100% {background-image:  url("https://pbs.twimg.com/media/CuGE9ZgVMAAfxL1.jpg")} 
+}
+
+.cambiobuton{
+    width: 30%;
+    height: 300px;
+    right: 0%;
+    animation-name: animbuton;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  background-size: cover;
+}
+.ui-state-hover:hover{
+    box-shadow: none;
+}
+.cambiobuton:hover{
+    box-shadow:  0 0 25px #FF047D;
+    margin-left: 5px;
+}
+
+/*animacion de frace*/
+.fras{
+  width: 20%;
+  bottom: 10%;
+  margin-left: 35%;
+  position: absolute;
+  animation: fras 4s infinite;
+}
+
+@keyframes fras {
+  0%   {left: 30%;}
+  100% {left: 0%;}
+}
+
+.chef{
+    position: absolute;
+    width: 20%;
+    bottom: 0%;
+    left: 15%;
+}
+
+
+.ui-draggable .ui-dialog-titlebar {
+    cursor: move;
+    background-color: #FF047E ;
+    text-decoration: none;
+    color: white;
+}
+
+.ui-widget-content {
+    border: 1px solid #a8a8a8;
+    background: #4f4f4fbd;
+    color: rgba(255,255,255,0.8);
+}
+
+.ui-button.btn-modal{
+    margin-top: 15px ;
+    background-color: #FF047E !important;
+    color:white;
+}

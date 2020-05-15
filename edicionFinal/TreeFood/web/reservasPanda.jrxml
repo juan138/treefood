@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="7922521e-ab84-4734-b486-b2efd595e523">
+	<property name="ireport.zoom" value="1.100000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="sucursal" class="java.lang.Integer"/>
+	<parameter name="sucName" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     reservas.`id_reserva` AS reservas_id_reserva,
+     reservas.`fecha_reserva` AS reservas_fecha_reserva,
+     reservas.`numero_contacto` AS reservas_numero_contacto,
+     reservas.`email` AS reservas_email,
+     reservas.`estado` AS reservas_estado,
+     reservas.`area_restaurante` AS reservas_area_restaurante,
+     clientes.`Email` AS clientes_Email,
+     clientes.`telefono` AS clientes_telefono,
+     sucursales.`sucursal` AS sucursales_sucursal,
+     personas.`nombres` AS personas_nombres,
+     personas.`apellidos` AS personas_apellidos,
+     sucursales_restaurantes.`id_restaurante` AS sucursales_restaurantes_id_restaurante,
+     sucursales_restaurantes.`id_sucursal` AS sucursales_restaurantes_id_sucursal
+FROM
+     `clientes` clientes INNER JOIN `reservas` reservas ON clientes.`id_cliente` = reservas.`id_cliente`
+     INNER JOIN `sucursales` sucursales ON reservas.`sucursal` = sucursales.`id_sucursal`
+     INNER JOIN `sucursales_restaurantes` sucursales_restaurantes ON sucursales.`id_sucursal` = sucursales_restaurantes.`id_sucursal`
+     INNER JOIN `personas` personas ON clientes.`id_persona` = personas.`id_persona`
+WHERE
+     reservas.`estado` = "activa" and sucursales.`id_sucursal` = $P{sucursal}]]>
+	</queryString>
+	<field name="reservas_id_reserva" class="java.lang.Integer"/>
+	<field name="reservas_fecha_reserva" class="java.sql.Date"/>
+	<field name="reservas_numero_contacto" class="java.lang.String"/>
+	<field name="reservas_email" class="java.lang.String"/>
+	<field name="reservas_estado" class="java.lang.String"/>
+	<field name="reservas_area_restaurante" class="java.lang.String"/>
+	<field name="clientes_Email" class="java.lang.String"/>
+	<field name="clientes_telefono" class="java.lang.String"/>
+	<field name="sucursales_sucursal" class="java.lang.String"/>
+	<field name="personas_nombres" class="java.lang.String"/>
+	<field name="personas_apellidos" class="java.lang.String"/>
+	<field name="sucursales_restaurantes_id_restaurante" class="java.lang.Integer"/>
+	<field name="sucursales_restaurantes_id_sucursal" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement x="140" y="0" width="238" height="27" uuid="1c62ce13-1911-4779-bf6b-7f12d5a9140c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Reservas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="27" width="238" height="24" uuid="4b748a4f-b7ed-4141-a27b-b73f40d6c183"/>
+				<textElement textAlignment="Center">
+					<font fontName="Consolas" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Panda Express]]></text>
+			</staticText>
+			<image>
+				<reportElement x="53" y="1" width="87" height="50" uuid="4c9d4785-53f4-491d-9184-4865ec87df68"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="0" width="81" height="20" uuid="9d1f708f-d7f7-4ee2-b1c8-8a8b2bcd0ce9"/>
+				<textElement>
+					<font fontName="Consolas" size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Sucursal: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="261" y="0" width="100" height="20" uuid="655ab09d-b030-49cc-b5bc-6cc25d23cf6e"/>
+				<textElement>
+					<font fontName="Consolas" size="14" isBold="false" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sucName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<rectangle>
+				<reportElement x="286" y="0" width="54" height="20" uuid="d1e53085-6d12-4fb5-9628-42edc7498f3e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="209" y="0" width="77" height="20" uuid="2525d730-fe3a-4a9b-97b1-ce472a98a97c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="140" y="0" width="69" height="20" uuid="4bf37ae6-a788-4e39-83ac-57ddc79f80af"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="70" y="0" width="70" height="20" uuid="c8cb88f1-c438-488b-af66-a8f96fee1ff4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="21" y="0" width="52" height="20" uuid="d1226769-2dfc-41b4-adc2-d82cdd6cdebd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="340" y="0" width="121" height="20" uuid="87ce3f6b-76a3-4183-8b47-1bec52ef5782"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="461" y="0" width="77" height="20" uuid="bcbf19fd-1f62-4b4f-ab32-ebcb7fd5346d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="21" y="0" width="52" height="20" uuid="bf43fe78-3747-4671-ba84-27ef987a711d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[sucursal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="0" width="77" height="20" uuid="f1d5b9b0-a3a5-45af-b87f-164395f9ce29"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[fecha reserva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="0" width="54" height="20" uuid="663ea2df-52fb-46d8-a2e6-10e6a8389d93"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[contacto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="121" height="20" uuid="cd062557-ad43-4a6c-9e75-b72d4ae79ec5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="0" width="77" height="20" uuid="11ed2831-87f2-4651-b97b-b92056e898a5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[area restaurante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="0" width="67" height="20" uuid="f0f328ca-e711-4f0f-9c08-8d0a29d5ecc4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="69" height="20" uuid="d89e3db7-e6f4-4f21-b3cc-b326390ab1cf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[apellidos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="0" width="52" height="20" uuid="b2fe9c72-ed89-4148-bc63-56b77afb6175"/>
+				<textFieldExpression><![CDATA[$F{sucursales_sucursal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="67" height="20" uuid="67a14c30-c2cd-409e-9b5f-f318cbc2aa0b"/>
+				<textFieldExpression><![CDATA[$F{personas_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="69" height="20" uuid="3ae7e342-0c21-4069-8467-fe7cc3fbd7e5"/>
+				<textFieldExpression><![CDATA[$F{personas_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="288" y="0" width="52" height="20" uuid="01fbbd09-36fd-4780-9942-2c9302957ab6"/>
+				<textFieldExpression><![CDATA[$F{reservas_numero_contacto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="0" width="52" height="20" uuid="2710ccc4-564c-4ac5-a15d-0d0b6c3b0c78"/>
+				<textFieldExpression><![CDATA[$F{reservas_fecha_reserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="0" width="52" height="20" uuid="4533d7ac-a993-414d-a53d-8e8c8f852e93"/>
+				<textFieldExpression><![CDATA[$F{reservas_area_restaurante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="121" height="20" uuid="90fc8733-6906-43fc-9409-924b5a0f66e2"/>
+				<textFieldExpression><![CDATA[$F{reservas_email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="57" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="53" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

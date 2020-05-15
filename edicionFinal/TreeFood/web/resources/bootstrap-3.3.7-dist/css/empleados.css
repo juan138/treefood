@@ -1,0 +1,426 @@
+body {
+    width: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url(https://crafts-hoodies.com/wp-content/uploads/2019/01/cosas-de-meseros.jpg);
+    background-size: cover;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+.navbar-inverse {
+    background-color: white;
+    border-color: transparent;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55)
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #1c1313;
+}
+
+.mar-left {
+    margin-left: -13px !important;
+}
+
+ul.navbar-right {
+    /*margin-right: -15.45vw !important;*/
+    margin-right: -8.5vw !important;
+}
+
+
+.row {
+
+}
+
+.margin-left-nav {
+    margin-left: 0 !important;
+}
+
+ul.dropdown-width {
+    width: 300px;
+}
+
+
+li a:hover {
+    background-color: #000 !important;
+    color: #ffffff !important;
+}
+
+li.active>a {
+    background-color: rgb(10, 66, 117) !important;
+    color: #ffffff !important;
+}
+
+.navbar-brand:hover {
+    color: #5b9bd1 !important;
+}
+
+ul.horizontal li {
+    border-left: transparent;
+}
+
+ul.horizontal li:last-child {
+    border-right: transparent;
+}
+
+
+
+/*----- Sidebar -----*/
+
+.profile-sidebar {
+    background-color: #d02c30;
+    height: 92.5vh;
+    border-right: transparent; 
+    margin-top: 0 !important;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55)
+}
+
+.profile-userpic {
+    padding-top: 40px;
+}
+
+.profile-userpic img {
+    margin: 0 auto;
+    width: 70%;
+    height: 70%;
+}
+
+.profile-user {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-name {
+    color: #1c1313;
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.profile-menu {
+    margin-top: 30px;
+}
+
+.profile-menu ul li a {
+    color: #1c1313;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 40px;
+    border-bottom: transparent;
+}
+
+ul.vertical li:first-child {
+    border-top: transparent;
+
+}
+
+
+.profile-menu ul li a i {
+    margin-right: 9px;
+    font-size: 14px;
+}
+
+
+/*----- End Sidebar y container del body -----*/
+
+#full-page {
+    /*    background-color: #ededed; */
+    width: 100%;
+
+}
+
+#header-content {
+    height: 43.5vh;
+}
+
+.lma-content {
+    height: 50vh;
+}
+
+/*para wizard */
+
+.wizard {
+    margin: 20px auto;
+    background: transparent;
+}
+
+.wizard .nav-tabs {
+    position: relative;
+    margin: 40px auto;
+    margin-bottom: 0;
+    border-bottom-color: #e0e0e0;
+}
+
+.wizard > div.wizard-inner {
+    position: relative;
+}
+
+.connecting-line {
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 20%;
+    margin: 0 auto;
+    left: 15%;
+    top: 50%;
+    z-index: 1;
+
+}
+
+.wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
+    color: #555555;
+    /*    cursor: default;*/
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+
+span.round-tab {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+    cursor: default;
+}
+span.round-tab i{
+    color:#555555;
+}
+.wizard li.active span.round-tab {
+    background: #fff;
+    border: 2px solid #e75858;
+
+}
+.wizard li.active span.round-tab i{
+    color: #e75858;
+}
+
+span.round-tab:hover {
+    color: #333;
+    border: 2px solid #555555;
+}
+
+.wizard .nav-tabs > li {
+    width: 25%;
+}
+
+.wizard li:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #555555;
+    transition: 0.1s ease-in-out;
+}
+
+.wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 46%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: #e75858; /* para triangulo */
+}
+
+.wizard .nav-tabs > li a {
+    width: 70px;
+    height: 70px;
+    margin: 20px auto;
+    border-radius: 100%;
+    padding: 0;
+}
+
+.wizard .nav-tabs > li a:hover {
+    background: transparent;
+}
+
+.wizard .tab-pane {
+    position: relative;
+    padding-top: 50px;
+}
+
+.wizard h3 {
+    margin-top: 0;
+}
+
+@media( max-width : 585px ) {
+
+    .wizard {
+        width: 90%;
+        height: auto !important;
+    }
+
+    span.round-tab {
+        font-size: 16px;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard .nav-tabs > li a {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .wizard li.active:after {
+        content: " ";
+        position: absolute;
+        left: 35%;
+    }
+}
+
+/* Configuracion para formularios*/
+form {
+
+}
+form h1 {
+  font-size: 3em;
+  font-weight: 300;
+  text-align: center;
+  color: #fff;
+}
+form h5 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+form hr.sep {
+    background: #fff;
+  box-shadow: none;
+  border: none;
+  height: 2px;
+  width: 25%;
+  margin: 0px auto 45px auto;
+}
+
+.group {
+  position: relative;
+  margin: 45px 0;
+
+}
+
+textarea {
+  resize: none;
+}
+
+input,
+textarea {
+  background: none;
+  color: #e75858;
+  font-size: 28px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 320px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+input:focus ~ label, input:valid ~ label,
+textarea:focus ~ label,
+textarea:valid ~ label {
+  top: -14px;
+  font-size: 19px;
+  color: #fff;
+}
+input:focus ~ .bar:before,
+textarea:focus ~ .bar:before {
+  width: 320px;
+}
+
+input[type="password"] {
+  letter-spacing: 0.3em;
+}
+
+label {
+    color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 300ms ease all;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 320px;
+}
+.bar:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #ff3333;
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.btn {
+  background: #fff;
+  color: #ff3300;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.btn:hover {
+  color: #8b8b8b;
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
+}
+.btn.btn-link {
+    background: #ff6666;
+  color: #d3eafd;
+}
+.btn.btn-link:hover {
+    background: #ff6666;
+  color: #deeffd;
+}
+.btn.btn-submit {
+    background: #ff6666;
+    color: #ffffff;
+}
+.btn.btn-submit:hover {
+  background: #ff3333;
+  color: white;
+}
+.btn.btn-cancel {
+  background: white;
+}
+.btn.btn-cancel:hover {
+  background: #e1e1e1;
+  color: black;
+}
+
+.btn-box {
+  text-align: center;
+  margin: 50px 0;
+}
+
+		

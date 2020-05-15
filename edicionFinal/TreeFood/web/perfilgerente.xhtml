@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <ui:composition template="/WEB-INF/include/templateGerente.xhtml">
+        <ui:define name="head">
+
+        </ui:define>
+
+        <ui:define name="body">
+            <header id="header">
+                <!-- para barra menu -->            
+                <nav class=" navbar-inverse navbar-fixed-top">
+                    <!-- div para informacion superior-->
+                    <div class="container-fluid" style="width: 100%; display: inline-block; text-align: center;">
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-md-6" style=" text-align: left">
+                                <a class="hijo2" style="text-align: left"><span class="glyphicon glyphicon-earphone"></span> +(503) 2222-2222</a>
+                                <a class="hijo2"><span class="glyphicon glyphicon-envelope"></span>  tf@treefood.com</a> 
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <a class="hijo2" href=""><span class="glyphicon glyphicon-off"></span>  Cerrar Sesion</a> 
+                            </div>                                           
+                        </div>
+
+                        <div class="col-md-12" style="margin-top: 1%; box-shadow: 0px -1px #fcd4d4">
+                            <img jsf:library="imagen" jsf:name="logocompleto.png" width="200" style="margin-top: 1%"/>
+                        </div>
+                    </div>
+
+                    <!-- navegador barra superior -->
+                    <div class="collapse navbar-collapse padre container-fluid" style="background: #d02c30; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55) ">
+                        <div class="row">
+                            <div>
+                                <a class="hijo" href="gerente.xhtml" style=" font-size: 20px; font-family: initial">Inicio</a>                  
+
+                                <a class="hijo" href="perfilgerente.xhtml" >Quienes Somos</a>
+                                
+                            </div>
+                        </div>
+                    </div><!-- fin navegador barra superior --> 
+                </nav>
+            </header>
+            <!--Inicia Contenido-->
+            <div class="container-fluid contenedor" >
+                <div class="row">
+                    <div class="contenedorinterno col-lg-12 col-sx-12">
+                        <div class="row">
+                            <div class="qsm" id="imagenesQS">
+                                <div>
+                                    <h2>¿QUIENES SOMOS?</h2>
+                                    <br>___</br>
+                                    <h3 style="color: #cccccc">Conoce Acerca de Nuestros Servicios</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       <div class="row">
+                           <div class="col-md-6" id="info" style="text-align: left">
+                                <div>
+                                    <h1 style="font-family: inherit; font-size: 50px">LOS MEJORES PRODUCTOS DIGITALES PARA SU NEGOCIO</h1>
+                                    <br/>
+                                    <h3 style="font-family: initialfantasy; font-size: 30px" >LA INNOVACIÓN NO DESCANSA</h3>
+                                </div>
+                            </div>
+                           <div class="col-md-6" id="info" style="text-align: left" >
+                               <div style="margin-top: 7%">
+                                    <h3 style="font-family: inherit;" >
+                                        Sabemos lo que significa dar a conocer tu negocio y cómo llevar a cabo el exito. Estamos aquí para hacer que sus ventas sean mucho más elevadas. Nos tomamos nuestro trabajo en serio y seguimos estrictos procesos de desarrollo.
+                                    </h3><br/>
+                                    <h3 style="font-family: inherit;">
+                                        Nuestro objetivo es su satisfacción y aumentar sus ganancias hasta que este realmente satisfecho por cada reserva. Conocemos soluciones digitales y estamos aquí para usted.
+                                    </h3>
+                                </div>
+                            </div>
+                        </div> 
+                        
+                    </div> 
+                </div>
+                
+                
+                
+            </div>
+            <!-- Fin Contenido -->
+        </ui:define>
+    </ui:composition>
+</html>
+

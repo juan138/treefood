@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+    <ui:composition template="/WEB-INF/include/templateEmpleado.xhtml">
+        <ui:define name="head">
+
+        </ui:define>
+
+        <ui:define name="body">
+            <div class="body">
+                
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container margin-left-nav">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <div class="navbar-header">                           
+                                <a class="navbar-brand" href="index.xhtml">
+                                    <div >
+                                        <img jsf:library="imagen" jsf:name="logocompleto.png" width="50" style="margin-left: 100%;"/>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 col-sm-10">
+                            <div class="navbar-collapse collapse" id="navbar-main">
+
+                                <!-- Navbar botones -->
+                                <ul class="nav navbar-nav horizontal mar-left">
+                                    <li><a href="vistaEmpleadoPanda.xhtml" style="margin-left: 3%">Inicio</a></li>
+                                </ul>
+
+                                <!-- Navbar derecho (Registro, Login) -->
+                                <ul class="nav navbar-nav navbar-right horizontal">
+
+                                    <!-- Inicio de sesión -->
+                                    <li>
+                                        <a  href="#" >Cerrar Sesión</a>                                       
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- barra lateral -->            
+
+            <section class="container-full">
+
+                <!-- Main page -->
+                <div class="row" id="full-page">
+
+                    <!-- Sidebar -->
+                    <div class="col-md-2 col-sm-2">
+                        <div class="profile-sidebar" >
+
+                            <!-- User picture -->
+                            <div class="profile-userpic" style="text-align: center">
+                                <img jsf:library="imagen" jsf:name="pE.png" width="200" />
+                            </div>
+
+                            <!-- Sidebar title -->
+                            <div class="profile-user" >
+                                <div class="profile-name" style="text-align: center">User</div>
+                            </div>
+
+                            <!-- Sidebar menu -->
+                            <nav class="profile-menu">
+                                <ul class="nav navbar vertical">
+                                    <li class="opcion">
+                                        <a href="#" id="o1"><i class="glyphicon glyphicon-user"></i> Perfil</a>
+                                    </li>
+                                    <li class="opcion">
+                                        <a href="#" id="o2"><i class="glyphicon glyphicon-stats"></i> Calendario</a>
+                                    </li>
+                                    <li class="opcion">
+                                        <a href="#" id="o3"><i class="glyphicon glyphicon-star"></i> Ventas</a>
+                                    </li>
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Content -->
+                    <div class="col-md-10 col-sm-2">
+                        <div id="mi-aside">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <script>
+                $(document).ready(function () {
+
+                    // El objeto components actua como un diccionario de componentes
+                    // Cada componente tiene dos propiedades:
+                    // - template: Es el html a ser renderizado.
+                    // - controller: Son las operaciones a ser realizadas sobre el
+                    //               html renderizado, el argumento "element" hace
+                    //               referencia al elemento DOM contenedor del html
+                    //               renderizado.
+                    // NOTA: se está usando la notación de "template literals" de ES2015
+                    // para evitar concatenar strings, así que puede que navegadores
+                    // extremadamente antiguos no puedan soportar este ejemplo.
+                    // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals
+                    var components = {
+                        o1: {
+                            template: `
+        
+	<div class="row">
+		<section>
+        <div class="wizard">
+            <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
+
+                    <li role="presentation" class="active">
+                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+<i class="glyphicon glyphicon-user"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+<i class="glyphicon glyphicon-cog"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+<i class="glyphicon glyphicon-user"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+<i class="glyphicon glyphicon-user"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <form role="form">
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="step1">
+                
+                
+                        <h3>Step 1</h3>
+                        <p>This is step 1</p> ------
+                
+                
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary next-step">Click to go next</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step2">
+                        <h3>Step 2</h3>
+                        <p>This is step 2</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Click to go next</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step3">
+                        <h3>Step 3</h3>
+                        <p>This is step 3</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Click to go next</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <h3>Complete</h3>
+                        <p>You have successfully completed all steps.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+   </div>
+
+
+ 
+            
+      `,
+                            controller: function (element) {
+                                element.find('span').css('color', '#555555');
+                            }
+                        },
+                        o2: {
+                            template: `
+        <div>
+          <h1>Opción 2</h1>
+          <span>Contenido de la opción 2</span>
+        </div>
+      `,
+                            controller: function (element) {
+                                element.find('h1').css('color', 'blue');
+                            }
+                        },
+                        o3: {
+                            template: `
+        <div>
+          <h2>Opción 3</h2>
+          <pre>Contenido de la opción 2</pre>
+        </div>
+      `,
+                            controller: function (element) {
+                                element.find('pre').css('color', 'green');
+                            }
+                        }
+                    };
+
+                    // Renderiza el html de cada componente y ejecuta el controlador
+                    // de este pasando el elemento contenedor como argumento.
+                    function renderComponent(element, componentName) {
+                        var component = components[componentName];
+                        element.html(component.template);
+                        component.controller(element);
+                    }
+
+                    // Un selector que busca todos los links y les asigna un click
+                    // listener que hace el cambio de componente sobre el elemento
+                    // usando el nombre del atributo "id" como llave del diccionario
+                    // de componentes.
+                    $('li.opcion a').click(function () {
+
+                        var aside = $('#mi-aside');
+                        // this hace referencia al elemento encontrado
+                        // this.id hace referncia al atributo "id"
+                        renderComponent(aside, this.id);
+                    });
+                });
+            </script>
+        </ui:define>
+    </ui:composition>
+</html>
+
